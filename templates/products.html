@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="message">See our line of mobile phones.</p>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Tag</th>
+                <th>Price</th>
+                <th>Photo</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for phone in phones %}
+        <tr>
+            <td>{{phone['name']}}</td>
+            <td>{{phone['tag']}}</td>
+            <td>{{phone['price']}}</td>
+            <td><img src="{{phone['image_path']}}"></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+{% endblock %}
