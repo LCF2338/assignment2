@@ -17,7 +17,7 @@ jobs:
   build-docker-image:
     name: Builder Docker Image
     environment: development
-    runs-on: creo
+    runs-on: self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -42,7 +42,7 @@ jobs:
   unittest:
     name: Unit Testing
     needs: [build-docker-image]
-    runs-on: creo
+    runs-on: self-hosted
     environment: development
     steps:
       - name: DockerHub Login
