@@ -15,7 +15,7 @@ products = db.products # Same collection name on MongoDB website.
 
 @flask_app.route("/")
 
-@flask_app.route("/index")
+@flask_app.route("/index", methods=["GET"])
 def index():
     return render_template("home.html")
 
