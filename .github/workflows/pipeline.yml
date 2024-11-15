@@ -41,7 +41,7 @@ jobs:
   # 2: Unit Testing
   unittest:
     name: Unit Testing
-    needs: [build-docker-image:]
+    needs: [build-docker-image]
     runs-on: creo
     environment: development
     steps:
