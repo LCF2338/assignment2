@@ -18,6 +18,7 @@ jobs:
     environment: development
     runs-on: self-hosted
     steps:
+      - shell: bash
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: DockerHub Login
