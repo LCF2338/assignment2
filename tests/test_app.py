@@ -1,6 +1,8 @@
 
 from app import flask_app
 import unittest
+from dotenv import load_dotenv
+load_dotenv()
 import os
 MONGODB_USERNAME = os.environ["MONGODB_USERNAME"]
 MONGODB_PASSWORD = os.environ["MONGODB_PASSWORD"]

@@ -3,8 +3,8 @@ from flask import render_template
 flask_app = Flask(__name__)
 
 from dotenv import load_dotenv
-import os
 load_dotenv()
+import os
 MONGODB_USERNAME = os.environ["MONGODB_USERNAME"]
 MONGODB_PASSWORD = os.environ["MONGODB_PASSWORD"]
 
