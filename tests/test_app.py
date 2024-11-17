@@ -34,4 +34,4 @@ class FlaskTestCase(unittest.TestCase):
         products.insert_one(new_data) # Insert the sample data into our products collection.
         inserted_data = products.find_one({"field": "new_value"}) # Set inserted data to our sample data if we find it in our database, verifying it was inserted.
         assert inserted_data is not None # Assert that inserted_data isn't empty.
-        assert inserted_data['field'] == 'new_value' # Assert that the inserted_data is indeed our sample data.
+        assert inserted_data['field'] == 'new_value' # Assert that the inserted_data is indeed our sample data

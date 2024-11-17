@@ -24,5 +24,3 @@ def index():
 def products():
     phones = list(db.products.find())
     return render_template("products.html", phones=phones)
-
-flask_app.run(host="0.0.0.0", port=5000)
