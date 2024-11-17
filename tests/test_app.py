@@ -1,17 +1,14 @@
 
-from app import flask_app
-import unittest
-
 from dotenv import load_dotenv
 load_dotenv()
 import os
 MONGODB_USERNAME = os.environ["MONGODB_USERNAME"]
 MONGODB_PASSWORD = os.environ.get("MONGODB_PASSWORD")
 
+from app import flask_app
+import unittest
+
 from pymongo import MongoClient
-client = MongoClient(f"mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.26bu2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-db = client.shop_db
-products = db.products
 
 class FlaskTestCase(unittest.TestCase):
 
@@ -25,10 +22,14 @@ class FlaskTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 405) # Assert the response.status code is 405, otherwise fail.
 
     def test_read_operation(self):
+        client = MongoClient(f"mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.26bu2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
         response = client.db_name.command('ping') # Populate response with what we get back from pinging the database with this command.
         self.assertEqual(response, {u'ok': 1.0}) # Assert the response is equal to MongoDB's okay signal, otherwise fail.
 
     def test_write_data_to_db(db):
+        client = MongoClient(f"mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.26bu2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+        db = client.shop_db
+        products = db.products
         new_data = {"field": "new_value"} # Create sample data.
         products.insert_one(new_data) # Insert the sample data into our products collection.
         inserted_data = products.find_one({"field": "new_value"}) # Set inserted data to our sample data if we find it in our database, verifying it was inserted.
