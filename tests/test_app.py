@@ -1,11 +1,13 @@
 
 from app import flask_app
 import unittest
+
 from dotenv import load_dotenv
 load_dotenv()
 import os
 MONGODB_USERNAME = os.environ["MONGODB_USERNAME"]
-MONGODB_PASSWORD = os.environ["MONGODB_PASSWORD"]
+MONGODB_PASSWORD = os.environ.get("MONGODB_PASSWORD")
+
 from pymongo import MongoClient
 client = MongoClient(f"mongodb+srv://{MONGODB_USERNAME}:{MONGODB_PASSWORD}@cluster0.26bu2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db = client.shop_db
