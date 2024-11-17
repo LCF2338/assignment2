@@ -16,10 +16,10 @@ jobs:
   build-docker-image:
     name: Build Docker Image
     environment: development
-    runs-on: self-hosted
+    runs-on: self-hosted # Runs on my personal Windows desktop at home.
     defaults:
       run:
-        shell: bash
+        shell: bash # Fix that tells GitHub Actions to run on Bash instead of Powershell
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
